@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de CR - Coeficiente de Rendimento</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de CR</h1>
+            <p>Automatize o cálculo do Coeficiente de Rendimento da sua empresa.</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <div class="formula">
+                    <strong>Fórmula:</strong> CR = Σ(Mᵢ × Cᵢ) / ΣCᵢ
+                </div>
+                
+                <div id="disciplinas-container">
+                    <!-- A primeira linha agora tem o botão de duplicar -->
+                    <div class="disciplina-row" id="row-1">
+                        <div class="input-group">
+                            <label>Nota (Mᵢ)</label>
+                            <input type="number" step="0.01" class="nota" placeholder="Ex: 9.0" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Carga/Créditos (Cᵢ)</label>
+                            <input type="number" step="1" class="carga" placeholder="Ex: 70" required>
+                        </div>
+                        <div class="row-actions">
+                            <button type="button" class="btn-duplicate" onclick="duplicateRow(1)" title="Duplicar Linha">❐</button>
+                            <button type="button" class="btn-remove" onclick="removeRow(1)" title="Remover">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="button" id="btn-add" class="btn-secondary">＋ Nova Disciplina</button>
+                    <button type="button" id="btn-calcular" class="btn-primary">Calcular CR</button>
+                </div>
+            </div>
+
+            <div id="resultado-card" class="card result hidden">
+                <h3>Resultado do Cálculo</h3>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="label">CR Final:</span>
+                        <span id="res-cr" class="value highlight">0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Σ(Nota × Carga):</span>
+                        <span id="res-pontos" class="value">0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Σ Carga Horária:</span>
+                        <span id="res-carga" class="value">0</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

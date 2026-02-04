@@ -1,5 +1,3 @@
-
-[README.md](https://github.com/user-attachments/files/25059584/README.md)
 # Calculadora de Coeficiente de Rendimento (CR)
 
 Este é um mini-site desenvolvido para automatizar o cálculo do CR baseado na fórmula:
